@@ -5,7 +5,7 @@ import "./App.css"
 export default function App() {
     const [data,setData] = useState([]);
     const fetchData = async()=>{
-        const response =await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30`);
+        const response =await fetch(`https://pokeapi.co/api/v2/pokemon`);
         const Data = await response.json();
         console.log(Data);
     function createPoke(result) {
@@ -29,14 +29,14 @@ export default function App() {
     <div className='heading-container'>
     <img className='logo' src={pokeball} alt="" />
 
-    <h1 className='heading'>POKECHU</h1>
+    <h1 className='heading'>PokeAtlasPro</h1>
     </div>
     
         <div className='poke-container'>
     {
         data.map((item,index)=>{
             return(
-                <Pokee  key={index} Name={item.name} img={item.sprites.front_default} height={item.height} weight={item.weight} url={item.url}
+                <Pokee  key={index} Name={item.name} img={item.sprites.other.dream_world.front_default} height={item.height} weight={item.weight} url={item.url}
                 abilities={item.abilities[0].ability.name} moves={item.moves[0].move.name}  
                 
                 />
